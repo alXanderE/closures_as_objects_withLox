@@ -1,0 +1,35 @@
+fun Vector(x, y) {
+  fun getX() {
+    return x;
+  }
+
+  fun getY() {
+    return y;
+  }
+
+  fun add(other) {
+    return Vector(x + other("x"), y + other("y"));
+  }
+
+  fun vector(method) {
+    if (method == "x") return x;
+    if (method == "y") return y;
+    if (method == "add") return add;
+  }
+
+  return vector;
+}
+
+// Create two vectors.
+var v1 = Vector(2, 3);
+var v2 = Vector(4, 5);
+
+// Access coordinates.
+print v1("x"); // 2
+print v1("y"); // 3
+
+// Add vectors.
+var v3 = v1("add")(v2);
+
+print v3("x"); // 6
+print v3("y"); // 8
